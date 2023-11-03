@@ -1,0 +1,154 @@
+/* 1. Animate the logo */
+@keyframes logo_animation {
+    0% {
+        width: 25px;
+        opacity: 0;
+    }
+    100% {
+        width: 475px;
+        opacity: 1;
+    }
+}
+
+#logo {
+    animation-name: logo_animation;
+    animation-duration: 5s;
+    animation-fill-mode: forwards;
+}
+
+/* 2. Style the body */
+body {
+    background-image: url("../images/concrete_seamless.png");
+    background-color: #f1f1f1;
+    font-family: poppins, serif;
+}
+
+/* 3. Apply flex to the header */
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 4. Apply flex to the nav_links class */
+.nav_links {
+    display: flex;
+    flex-direction: column;
+}
+
+/* 5. Style the links so that they have the same color even after they have been visited */
+.nav_item a {
+    color: blue;
+}
+
+/* 6. Style the header elements that are direct children of a card class */
+.card > header {
+    background-color: #288088;
+    border: 2px solid #45ADAD;
+    padding: 20px 0;
+    border-radius: 50px 50px 0 0;
+}
+
+/* 7. 8. Style the card and pricing class */
+.card {
+    border-radius: 50px 50px 0 0;
+    flex-basis: 450px;
+}
+
+.pricing {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 9. 10. Style the gallery class */
+.gallery img {
+    border: 10px solid #50C7C7;
+    margin: 10px;
+    width: 300px;
+}
+
+.gallery {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+
+@media screen and (min-width: 900px) {
+    /* 11. Style the header and nav_links class */
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .nav_links {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    /* 12. Style the card class */
+    .card {
+        flex-basis: 275px;
+    }
+
+    /* 13. Keep the first header at the top of the screen */
+    body > header {
+        position: sticky;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+    }
+}
+
+
+/* 14. Remove animation for prefers-reduced-motion */
+@media screen and (prefers-reduced-motion: reduce) {
+    #logo {
+        animation: none;
+    }
+}
+
+
+/* Style for print mode */
+@media print {
+    /* 15, 16. Style the body */
+    body {
+        font-family: Arial, Helvetica;
+        background-image: none;
+    }
+
+    /* 17. Style the nav to ensure that there are spaces for .nav_links, and then style the .nav_links */
+    nav {
+        width: 100%;
+    }
+
+    .nav_links {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    /* 18. Style the pricing class */
+    .pricing {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: flex-end;
+    }
+
+    /* 19. Style the card class */
+    .card {
+        border: 2px solid #45ADDD;
+        flex-basis: 325px;
+    }
+
+    /* 20. Make gallery invisible */
+    #gallery, .gallery {
+        display: none;
+    }
+
+    /* 21. Add thumbs-up emoji */
+    .card ul li:nth-of-type(2)::after {
+        content: "\1F44D";
+    }
+}
